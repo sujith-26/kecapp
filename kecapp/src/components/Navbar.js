@@ -9,7 +9,6 @@ import l2 from '../assets/WITHOUT BG.png'
 const TopNavLinks = [
   { name: "Home", href: "/" },
   { name: "Library", href: "/faculty" },
-  { name: "Parents", href: "/parent" },
   { name: "Facilities", href: "/visitors" },
   { name: "Academic", href: "/alumni" },
   { name: "COE", href: "/examinations" },
@@ -24,7 +23,7 @@ const TopNavLinks = [
 
 const MainNavLinks = [
   {
-    name: "About Us",
+    name: "AboutUs",
     href: "#",
     submenu: [
       { name: "About KEC", href: "/research-centers" },
@@ -46,7 +45,7 @@ const MainNavLinks = [
         name: "Engineering",
         submenu: [
           { name: "Civil Engineering", href: "/civil-engineering" },
-          { name: "Mechanical Engineering", href: "/mechanical-engineering" },
+          { name: "Mechanical Engineering", href: "/departments/mechdep/mechhome" },
           { name: "Mechatronics Engineering", href: "/mechatronics-engineering" },
           { name: "Automobile Engineering", href: "/automobile-engineering" },
           { name: "Chemical Engineering", href: "/chemical-engineering" },
@@ -166,21 +165,21 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-lg" : "bg-transparent"}`}>
+    <header className={`w-full fixed top-0 left-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-lg" : "black-fade-bg"}`}>
       {/* Top Navigation */}
       <nav
         className={`transition-all duration-300 ${isScrolled ? "h-0 overflow-hidden" : "h-auto"} md:block`}
       >
         <div className="max-w-7xl mx-auto px-4">
-          <ul className="flex flex-wrap justify-end gap-4 py-2 text-sm text-white">
+          <ul className="flex flex-wrap justify-center gap-4 py-2 text-[16px] text-white">
             {TopNavLinks.map((link) => (
               <li key={link.name} className="hidden md:block">
                 <Link
-                  to={link.href}
-                  className="hover:text-gray-800 transition-colors px-2 py-1 rounded-md hover:bg-blue-800 font-bold"
-                >
-                  {link.name}
-                </Link>
+  to={link.href}
+  className="text-white hover:text-yellow-400 transition-all duration-500 ease-in-out px-2 py-1 rounded-md hover:tracking-widest"
+>
+  {link.name}
+</Link>
               </li>
             ))}
             <li>
@@ -219,14 +218,14 @@ export default function Navbar() {
                 >
                   <Link
                       to={link.href}
-                      className={`px-4 py-2 ${isScrolled ? "text-blue-600" : "text-white"} hover:text-blue-600 rounded-md hover:bg-gray-50 transition-all flex items-center gap-1 text-sm font-bold ${
+                      className={`px-4 py-2 ${isScrolled ? "text-blue-600" : "text-white"} hover:text-blue-600 rounded-md hover:bg-gray-50 transition-all flex items-center gap-1 text-[17px]${
                       activeSubmenu === index ? "bg-gray-100" : ""
                     }`}
                   >
                     {link.name}
                     {link.submenu && (
                       <ChevronDown
-                        className={`h-4 w-4 transition-transform duration-300 ${
+                        className={`h-3 w-4 transition-transform duration-300 ${
                           activeSubmenu === index ? "rotate-180" : ""
                         }`}
                       />

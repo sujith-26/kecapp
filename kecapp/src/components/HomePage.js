@@ -228,101 +228,105 @@ export default function HomePage() {
 </section>
 
 
-      {/* Rankings Section */}
-      <section className="min-h-screen bg-white py-12 md:py-16">
-        <div className="container mx-auto px-4 max-w-4xl relative">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-center mb-8 md:mb-12"
-          >
-            <h1 className="text-[#003399] text-3xl md:text-6xl font-bold mb-4">RANKED TOP</h1>
-            <p className="text-lg md:text-2xl text-[#003399]">among India's private universities</p>
-          </motion.div>
 
-          <div className="relative">
-            <button
-              onClick={prevRanking}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 md:-translate-x-16 z-10 bg-[#FFCC00] p-2 md:p-3 rounded-full shadow-lg hover:bg-[#FFD633] transition-colors transform hover:scale-110"
-              aria-label="Previous ranking"
-            >
-              <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-[#003399]" />
-            </button>
+<section className="min-h-screen bg-white py-12 md:py-16">
+  <div className="container mx-auto px-4 max-w-4xl relative">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className="text-center mb-8 md:mb-12"
+    >
+      <h1 className="text-[#003399] text-3xl md:text-6xl font-bold mb-4">RANKED TOP</h1>
+      <p className="text-lg md:text-2xl text-[#003399]">among India's private universities</p>
+    </motion.div>
 
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.5 }}
-                className="bg-white border-2 border-[#003399] rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 ease-in-out hover:shadow-xl"
-              >
-                <div className="p-6 md:p-8">
-                  <div className="flex flex-col md:flex-row items-center justify-between mb-4 md:mb-6">
-                    <h2 className="text-xl md:text-3xl font-bold text-[#003399]">{rankings[activeIndex].title}</h2>
-                    <span className="text-lg md:text-xl font-semibold text-white bg-[#003399] px-3 py-1 md:px-4 md:py-2 rounded-full mt-2 md:mt-0">
-                      {rankings[activeIndex].year}
-                    </span>
-                  </div>
-                  <div className="bg-[#FFCC00] w-12 md:w-16 h-1 mb-4 md:mb-6"></div>
-                  <p className="text-base md:text-xl text-[#003399] leading-relaxed">{rankings[activeIndex].description}</p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+    <div className="relative">
+      {/* Previous Button */}
+      <button
+        onClick={prevRanking}
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 md:-translate-x-16 z-10 bg-[#FFCC00] p-2 md:p-3 rounded-full shadow-lg hover:bg-[#FFD633] transition-colors transform hover:scale-110"
+        aria-label="Previous ranking"
+      >
+        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-[#003399]" />
+      </button>
 
-            <button
-              onClick={nextRanking}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 md:translate-x-16 z-10 bg-[#FFCC00] p-2 md:p-3 rounded-full shadow-lg hover:bg-[#FFD633] transition-colors transform hover:scale-110"
-              aria-label="Next ranking"
-            >
-              <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-[#003399]" />
-            </button>
-          </div>
-
-          <div className="flex justify-center gap-2 md:gap-3 mt-8 md:mt-12">
-            {rankings.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors ${
-                  activeIndex === index ? "bg-[#003399]" : "bg-[#003399]/30"
-                }`}
-                aria-label={`Go to ranking ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-
+      {/* Carousel Content */}
+      <div className="overflow-hidden">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          key={activeIndex}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mt-12 md:mt-16 text-center"
+          className="bg-white border-2 border-[#003399] rounded-xl overflow-hidden shadow-lg"
         >
-          <h3 className="text-2xl font-bold text-[#003399] mb-4">Our Achievements</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            <div className="bg-white p-4 md:p-6 rounded-lg shadow-md border border-[#003399] transform hover:scale-105 transition-transform">
-              <p className="text-3xl md:text-4xl font-bold text-[#FFCC00] mb-2">40+</p>
-              <p className="text-base md:text-lg text-[#003399]">Years of Excellence</p>
+          <div className="p-6 md:p-8">
+            <div className="flex flex-col md:flex-row items-center justify-between mb-4 md:mb-6">
+              <h2 className="text-xl md:text-3xl font-bold text-[#003399]">{rankings[activeIndex].title}</h2>
+              <span className="text-lg md:text-xl font-semibold text-white bg-[#003399] px-3 py-1 md:px-4 md:py-2 rounded-full mt-2 md:mt-0">
+                {rankings[activeIndex].year}
+              </span>
             </div>
-            <div className="bg-white p-4 md:p-6 rounded-lg shadow-md border border-[#003399] transform hover:scale-105 transition-transform">
-              <p className="text-3xl md:text-4xl font-bold text-[#FFCC00] mb-2">50k+</p>
-              <p className="text-base md:text-lg text-[#003399]">Alumni Network</p>
-            </div>
-            <div className="bg-white p-4 md:p-6 rounded-lg shadow-md border border-[#003399] transform hover:scale-105 transition-transform">
-              <p className="text-3xl md:text-4xl font-bold text-[#FFCC00] mb-2">100%</p>
-              <p className="text-base md:text-lg text-[#003399]">Placement Assistance</p>
-            </div>
+            <div className="bg-[#FFCC00] w-12 md:w-16 h-1 mb-4 md:mb-6"></div>
+            <p className="text-base md:text-xl text-[#003399] leading-relaxed">{rankings[activeIndex].description}</p>
           </div>
         </motion.div>
-      </section>
+      </div>
+
+      {/* Next Button */}
+      <button
+        onClick={nextRanking}
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 md:translate-x-16 z-10 bg-[#FFCC00] p-2 md:p-3 rounded-full shadow-lg hover:bg-[#FFD633] transition-colors transform hover:scale-110"
+        aria-label="Next ranking"
+      >
+        <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-[#003399]" />
+      </button>
+    </div>
+
+    {/* Indicators */}
+    <div className="flex justify-center gap-2 md:gap-3 mt-8 md:mt-12">
+      {rankings.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setActiveIndex(index)}
+          className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-colors ${
+            activeIndex === index ? "bg-[#003399]" : "bg-[#003399]/30"
+          }`}
+          aria-label={`Go to ranking ${index + 1}`}
+        />
+      ))}
+    </div>
+  </div>
+
+  {/* Achievements Section */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    viewport={{ once: true }}
+    className="mt-12 md:mt-16 text-center"
+  >
+    <h3 className="text-2xl font-bold text-[#003399] mb-4">Our Achievements</h3>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      <div className="bg-white p-4 md:p-6 rounded-lg shadow-md border border-[#003399] transform hover:scale-105 transition-transform">
+        <p className="text-3xl md:text-4xl font-bold text-[#FFCC00] mb-2">40+</p>
+        <p className="text-base md:text-lg text-[#003399]">Years of Excellence</p>
+      </div>
+      <div className="bg-white p-4 md:p-6 rounded-lg shadow-md border border-[#003399] transform hover:scale-105 transition-transform">
+        <p className="text-3xl md:text-4xl font-bold text-[#FFCC00] mb-2">50k+</p>
+        <p className="text-base md:text-lg text-[#003399]">Alumni Network</p>
+      </div>
+      <div className="bg-white p-4 md:p-6 rounded-lg shadow-md border border-[#003399] transform hover:scale-105 transition-transform">
+        <p className="text-3xl md:text-4xl font-bold text-[#FFCC00] mb-2">100%</p>
+        <p className="text-base md:text-lg text-[#003399]">Placement Assistance</p>
+      </div>
+    </div>
+  </motion.div>
+</section>
 
       {/* Virtual Campus Tour Button */}
-      <div className="fixed right-4 bottom-4">
+      <div className="fixed right-4 bottom-4 z-50">
         <a href="https://naveenkumarr21.github.io/vr-deploy/" target="_blank" rel="noopener noreferrer">
           <motion.button
             whileHover={{ scale: 1.05 }}

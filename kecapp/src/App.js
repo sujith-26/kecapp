@@ -12,6 +12,7 @@ import Facility from "./components/departments/itdep/facility_lib"; // Correct p
 import High from "./components/departments/itdep/ithigh"; // Correct path to Highlights component
 import Faculty from "./components/departments/itdep/itfac";
 import Patent from "./components/departments/itdep/itpat";
+import Footer from "./components/Footer";
 
 export default function App() {
   const location = useLocation(); // Get the current route path
@@ -39,6 +40,7 @@ export default function App() {
           <Placementlogo />
         </>
       )}
+      <Footer/>
     </>
   );
 }
