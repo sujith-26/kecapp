@@ -121,7 +121,7 @@ const Faculty = () => {
   useEffect(() => {
     const fetchFaculty = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/faculty");
+        const response = await fetch("https://server-o4m9.onrender.com/api/faculty");
         const data = await response.json();
         setFacultyMembers(data);
       } catch (error) {

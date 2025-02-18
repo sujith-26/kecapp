@@ -6,7 +6,7 @@ const PatentDetails = () => {
 
   useEffect(() => {
     // Fetch patent details from the API
-    fetch('http://localhost:4000/api/patentdetails')
+    fetch('https://server-o4m9.onrender.com/api/patentdetails')
       .then(response => response.json())
       .then(data => {
         // Assuming the API returns an array of patent objects

@@ -19,7 +19,7 @@ const ITHome = () => {
   useEffect(() => {
     const fetchHodDetails = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/hod');
+        const response = await fetch('https://server-o4m9.onrender.com/api/hod');
         console.log("Response Status:", response.status); // Log response status
         if (!response.ok) {
           throw new Error('Failed to fetch HOD details');
@@ -42,7 +42,7 @@ const ITHome = () => {
   useEffect(() => {
     const fetchProgrammeDetails = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/programmes");
+        const response = await fetch("https://server-o4m9.onrender.com/api/programmes");
         if (!response.ok) {
           throw new Error("Failed to fetch programme details");
         }
@@ -60,7 +60,7 @@ const ITHome = () => {
   useEffect(() => {
     const fetchVisionDetails = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/visions");
+        const response = await fetch("https://server-o4m9.onrender.com/api/visions");
         if (!response.ok) {
           throw new Error("Failed to fetch vision details");
         }
@@ -78,7 +78,7 @@ const ITHome = () => {
   useEffect(() => {
     const fetchMissionDetails = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/missions");
+        const response = await fetch("https://server-o4m9.onrender.com/api/missions");
         if (!response.ok) {
           throw new Error("Failed to fetch mission details");
         }
@@ -96,7 +96,7 @@ const ITHome = () => {
   useEffect(() => {
     const fetchPEOsDetails = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/peos");
+        const response = await fetch("https://server-o4m9.onrender.com/api/peos");
         if (!response.ok) {
           throw new Error("Failed to fetch PEOs details");
         }
@@ -114,7 +114,7 @@ const ITHome = () => {
   useEffect(() => {
     const fetchPOsDetails = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/pos");
+        const response = await fetch("https://server-o4m9.onrender.com/api/pos");
         if (!response.ok) {
           throw new Error("Failed to fetch POs details");
         }
@@ -132,7 +132,7 @@ const ITHome = () => {
   useEffect(() => {
     const fetchPSOsDetails = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/psos");
+        const response = await fetch("https://server-o4m9.onrender.com/api/psos");
         if (!response.ok) {
           throw new Error("Failed to fetch PSOs details");
         }

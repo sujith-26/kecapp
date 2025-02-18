@@ -13,7 +13,7 @@ const DepartmentHighlights = () => {
   useEffect(() => {
     const fetchHighlights = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/highlights");
+        const response = await fetch("https://server-o4m9.onrender.com/api/highlights");
         const data = await response.json();
         console.log("Fetched Highlights:", data); // Debugging
         setHighlights(data.highlights || []); // Handle potential undefined
@@ -28,7 +28,7 @@ const DepartmentHighlights = () => {
   useEffect(() => {
     const fetchMilestones = async () => {
       try {
-        const response = await fetch("http://localhost:4000/api/milestones");
+        const response = await fetch("https://server-o4m9.onrender.com/api/milestones");
         const data = await response.json();
         console.log("Fetched Milestones:", data); // Debugging
 
